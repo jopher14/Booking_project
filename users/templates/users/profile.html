@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %} {% load static %} {% load crispy_forms_tags %} {%
+block title %} PROFILE PAGE {% block content %}
+
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'user/profile.css' %}"/> -->
+
+<style type="text/css">
+#bt{
+  width: 10%;
+  border-radius: 30%;
+}
+#bt:hover{
+  background-color: #777;
+}
+#bt:active{
+  background-color: #424242;
+}
+</style>
+
+<div class="content-section">
+  <div class="media">
+    <img class="rounded-circle account-img" id="image" src="{% static 'user/Default.jpg' %}"
+    />
+    <div class="media-body">
+      <a class="account-heading" id="name">{{ user.first_name }}</a>
+      <p class="text-secondary" id="last">{{ user.last_name }}</p>
+      <input type="file" name="Upload" id="bt1">
+    </div>
+  </div>
+  <!-- FORM HERE -->
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">{{user.username}}</legend>
+        {{ u_form|crispy }} <!--{{ p_form|crispy }}-->
+      </fieldset>
+      <button type="submit" id="bt">Update</button>
+      <button type="submit" id="bt"><a href="/">Cancel</a></button>
+    </form>
+  </div>
+
+  {% endblock %}
+</div>

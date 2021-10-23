@@ -1,0 +1,12 @@
+def profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST)
+        if form.is_valid():
+           form.save()
+        first_name = form.cleaned_data.get('first_name')
+        last_name = form.cleaned_data.get('last_name')
+        email = form.cleaned_data.get('email')
+        messages.success(request, f'Your profile has been Updated!')
+    else:
+        form = EditProfileForm()
+    return render(request, 'users/profile.html', {'form': form})

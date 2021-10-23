@@ -1,0 +1,44 @@
+form {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+}
+fieldset {
+  justify-items: center;
+  width: 30%;
+  border-radius: 25px;
+}
+#content-section {
+  justify-items: center;
+  box-shadow: black;
+  box-shadow: 0 0 8px 6px;
+  border-radius: 32px;
+}
+legend {
+  font-size: 20px;
+  font-weight: bold;
+}
+#name, #last {
+  margin-top: 0;
+  font-weight: bold;
+}
+p{
+  font-size: 25px;
+  font-style: italic;
+}
+#bt{
+  width: 10%;
+  border-radius: 30%;
+}
+#bt:hover{
+  background-color: #777;
+}
+#bt:active{
+  background-color: #424242;
+}
+
+
+

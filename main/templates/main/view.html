@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% block title %}VIEW PAGE{% endblock %}
+{% block content %}
+<h1>VIEW PAGE</h1>
+<h2>Your Schedule for Checkup</h2>
+<style>
+    table{
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #title{
+        font-size: 20px;
+    }
+    #search{
+        margin-bottom: 10px;
+    }
+
+</style>
+
+    <div class="container">
+    <tr>
+        <table border="1">
+            <tr id="title">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Doctor</th>
+                <th>Message</th>
+                <th>Time</th>
+                <th>Date</th>
+            </tr>
+            {% for result in result %}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.name}}</td>
+                <td>{{result.contact}}</td>
+                <td>{{result.email}}</td>
+                <td>{{result.doctor}}</td>
+                <td>{{result.message}}</td>
+                <td>{{result.time}}</td>
+                <td>{{result.date}}</td>
+                <td><a class="btn btn-secondary btn-sm" href="/editbook/{{result.id}}" role="button">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </tr>
+    <input id="search">
+    <a class="btn btn-secondary btn" href="#" role="button">Search</a><br>
+    <a class="btn btn-secondary btn" href="#" role="button">Delete</a>
+    <a class="btn btn-secondary btn" href="/" role="button">Back</a>
+</div>
+{% endblock %}
+

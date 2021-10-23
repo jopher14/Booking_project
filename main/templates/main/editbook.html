@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% block title %}EDIT PAGE{% endblock %}
+{% block content %}
+<center>
+<h1>EDIT & UPDATE APPOINTMENT</h1>
+<hr/>
+<form method="POST" action="/updatebook/{{result.id}}">
+    {% csrf_token %}
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td><input type="text" name="id" value="{{result.id}}" readonly></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" name="name" value="{{result.name}}"></td>
+    </tr>
+    <tr>
+        <td>Contact</td>
+        <td><input type="text" name="contact" value="{{result.contact}}"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="text" name="email" value="{{result.email}}"></td>
+    </tr>
+    <tr>
+        <td>Doctor</td>
+        <td>
+        <select name="doctor" value="{{result.doctor}}">
+        <option value="Doctor1">Doctor1</option>
+        <option value="Doctor2">Doctor2</option>
+        <option value="Doctor3">Doctor3</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td><input type="text" name="message" value="{{result.message}}"></td>
+    </tr>
+    <tr>
+        <td>Time</td>
+        <td>
+        <select name="time" value="{{result.time}}">
+        <option value="07:00-08:00">07:00-08:00</option>
+        <option value="08:00-09:00">08:00-09:00</option>
+        <option value="09:00-10:00">09:00-10:00</option>
+        <option value="10:00-11:00">10:00-11:00</option>
+        <option value="11:00-12:00">11:00-12:00</option>
+        <option value="13:00-14:00">13:00-14:00</option>
+        <option value="14:00-15:00">14:00-15:00</option>
+        <option value="15:00-16:00">15:00-16:00</option>
+        <option value="16:00-17:00">16:00-17:00</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td><input type="text" name="date" value="{{result.date}}"></td>
+    </tr>
+</table>
+<br>
+<input type="submit" class="btn btn-secondary btn" value="Update"/> <a class="btn btn-secondary btn" href="/view" role="button">Back to View</a>
+
+{% if messages %}
+{% for updatebook in message %}
+<h3 style="color: green;">{{updatebook}}</h3>
+{% endfor %}
+{% endif %}
+</form>
+</center>
+
+
+{% endblock %}
